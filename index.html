@@ -29,10 +29,9 @@
 <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-sans.woff2" crossorigin>
 <link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,50&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -64,6 +63,8 @@
 </script>
 
 <style>
+@font-face{font-family:"Fraunces";src:url(assets/fonts/fraunces.woff2) format("woff2-variations"),url(assets/fonts/fraunces.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Nunito Sans";src:url(assets/fonts/nunito-sans.woff2) format("woff2-variations"),url(assets/fonts/nunito-sans.woff2) format("woff2");font-weight:400 800;font-style:normal;font-display:swap}
 :root{
   --leaf:#90C838; --oak:#488838; --moss:#2F6B3A; --forest:#1F4A2C; --pine:#15301E;
   --cream:#F6F3EC; --sand:#EDE7DA; --linen:#FBF9F4; --bark:#5B4636; --ink:#232823; --stone:#6B6F6A; --gold:#E9C46A;
@@ -268,9 +269,9 @@ section{position:relative}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Open Oaks Mobile Pet Grooming home">
+    <a class="brand" href="#top">
       <img src="assets/logo-mark-160.png" alt="" width="46" height="46">
-      <span><b>Open Oaks</b><small>Mobile Pet Grooming</small></span>
+      <span><b>Open Oaks</b> <small>Mobile Pet Grooming</small></span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links">
@@ -291,7 +292,7 @@ section{position:relative}
 <main id="main">
 <section class="hero" id="top" aria-label="Introduction">
   <div class="hero-media" data-depth="0.22">
-    <img src="assets/hero-poster.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    <img src="assets/hero-poster.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
     <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1"></video>
     <script>
     (function(){
@@ -472,7 +473,7 @@ section{position:relative}
     </div>
     <div class="rv-more reveal">
       <a class="btn btn-primary" href="https://www.facebook.com/openoaksgrooming/reviews" target="_blank" rel="noopener">Read all 35 reviews on Facebook</a>
-      <span class="stars" aria-label="96 percent recommend"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg></span>
+      <span class="stars" role="img" aria-label="Five stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 9.2 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.2-.7z"/></svg></span>
       <span style="opacity:.8;font-weight:700">96% recommend</span>
     </div>
   </div>
