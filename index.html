@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -122,6 +122,7 @@ p{margin:0 0 1em}
 .hero-media video,.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
 .hero-media video{position:absolute;inset:0}
 .hero-media img{position:absolute;inset:0}
+@media (min-width:960px){.hero-media video,.hero-media img{transform:translateX(-7%) scale(1.16);transform-origin:50% 50%}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(21,48,30,.35) 0%,rgba(21,48,30,.05) 35%,rgba(21,48,30,.55) 75%,rgba(21,48,30,.92) 100%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(21,48,30,.55) 0%,rgba(21,48,30,0) 60%)}
 .hero-content{position:relative;padding:8.5rem 0 5.5rem;max-width:740px}
@@ -136,13 +137,13 @@ p{margin:0 0 1em}
 .scroll-cue{position:absolute;right:2rem;bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
 .scroll-cue span{width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,0));animation:cue 2.2s var(--ease) infinite;transform-origin:top}
 @keyframes cue{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-@media (max-width:640px){.scroll-cue{display:none}.hero-content{padding:7.5rem 0 4.5rem}}
+@media (max-width:640px){.scroll-cue{display:none}.hero-content{padding:7.5rem 0 4.5rem}.hero .px svg{transform:scale(.55);transform-origin:center}.hero .leaf-mid{display:none}}
 
 /* ---------- Parallax leaves ---------- */
 .px{position:absolute;inset:0;pointer-events:none;z-index:-1;will-change:transform}
 .px svg{position:absolute;overflow:visible}
 .leaf-fill-1{fill:var(--leaf)} .leaf-fill-2{fill:var(--oak)} .leaf-fill-3{fill:var(--moss)}
-.hero .px svg{opacity:.55;filter:drop-shadow(0 12px 18px rgba(0,0,0,.25))}
+.hero .px svg{opacity:.5;filter:drop-shadow(0 12px 18px rgba(0,0,0,.25))}
 .section-px{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .section-px .px svg{opacity:.16}
 
@@ -163,7 +164,8 @@ section{position:relative}
 /* About */
 .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
 .about-media{position:relative;aspect-ratio:4/3.4;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.about-media picture,.about-media img{position:absolute;inset:-14% 0;width:100%;height:128%;object-fit:cover;will-change:transform}
+.about-media picture{position:absolute;inset:-18% 0;width:100%;height:136%;will-change:transform}
+.about-media picture img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
 .about-badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(246,243,236,.92);backdrop-filter:blur(8px);border-radius:16px;padding:.8rem 1rem;display:flex;align-items:center;gap:.7rem;box-shadow:0 10px 30px -14px rgba(0,0,0,.4);font-weight:700;color:var(--forest);font-size:.92rem}
 .about-badge img{width:40px;height:40px}
 .about-copy h2{margin-bottom:1.2rem}
@@ -176,7 +178,7 @@ section{position:relative}
 /* Services */
 .services{background:var(--linen)}
 .services-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
 .svc{background:#fff;border-radius:var(--radius);padding:1.7rem 1.6rem 1.6rem;border:1px solid rgba(72,136,56,.12);box-shadow:0 14px 40px -30px rgba(31,74,44,.5);transition:transform .45s var(--ease),box-shadow .45s var(--ease);position:relative;overflow:hidden}
 .svc::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(144,200,56,.22),rgba(144,200,56,0) 70%);transition:transform .5s var(--ease)}
 .svc:hover{transform:translateY(-5px);box-shadow:0 26px 50px -30px rgba(31,74,44,.55)}
@@ -242,8 +244,8 @@ section{position:relative}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 
 /* Reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
 
 /* Sticky mobile call bar */
@@ -257,7 +259,7 @@ section{position:relative}
   .reveal{opacity:1;transform:none;transition:none}
   .scroll-cue span{animation:none}
   .btn,.svc,.town,.ccard{transition:none}
-  .px,.hero-media,.about-media img,.about-media picture{transform:none!important}
+  .px,.hero-media,.about-media picture{transform:none!important}
 }
 </style>
 </head>
@@ -267,7 +269,7 @@ section{position:relative}
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Open Oaks Mobile Pet Grooming home">
-      <img src="assets/logo-mark.png" alt="" width="46" height="46">
+      <img src="assets/logo-mark-160.png" alt="" width="46" height="46">
       <span><b>Open Oaks</b><small>Mobile Pet Grooming</small></span>
     </a>
     <nav aria-label="Primary">
@@ -290,19 +292,29 @@ section{position:relative}
 <section class="hero" id="top" aria-label="Introduction">
   <div class="hero-media" data-depth="0.22">
     <img src="assets/hero-poster.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
-    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-      <source src="assets/hero.webm" type="video/webm">
-      <source src="assets/hero.mp4" type="video/mp4">
-    </video>
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1"></video>
+    <script>
+    (function(){
+      /* Attach exactly one size of the hero loop, before the browser starts any fetch. */
+      var v = document.getElementById('heroVideo');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var c = navigator.connection || {};
+      var small = Math.min(screen.width, screen.height) <= 480 || c.saveData || /2g/.test(c.effectiveType || '');
+      var base = small ? 'assets/hero-720' : 'assets/hero';
+      [['webm','video/webm'],['mp4','video/mp4']].forEach(function(t){
+        var s = document.createElement('source'); s.src = base + '.' + t[0]; s.type = t[1]; v.appendChild(s);
+      });
+    })();
+    </script>
   </div>
   <div class="px" data-depth="0.42" aria-hidden="true">
     <svg style="left:6%;top:12%;width:120px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-1" transform="rotate(-24 32 40)"/></svg>
-    <svg style="right:14%;top:18%;width:90px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-2" transform="rotate(38 32 40)"/></svg>
-    <svg style="right:30%;bottom:26%;width:70px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-1" transform="rotate(120 32 40)"/></svg>
+    <svg style="right:8%;top:14%;width:90px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-2" transform="rotate(38 32 40)"/></svg>
+    <svg class="leaf-mid" style="left:42%;top:2%;width:56px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-1" transform="rotate(120 32 40)"/></svg>
   </div>
   <div class="px" data-depth="0.7" aria-hidden="true">
-    <svg style="left:22%;bottom:18%;width:150px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-2" transform="rotate(-70 32 40)"/></svg>
-    <svg style="right:5%;bottom:34%;width:170px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-1" transform="rotate(64 32 40)"/></svg>
+    <svg style="left:-2%;bottom:10%;width:150px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-2" transform="rotate(-70 32 40)"/></svg>
+    <svg style="right:2%;bottom:40%;width:150px" viewBox="0 0 64 80"><use href="#oakleaf" class="leaf-fill-1" transform="rotate(64 32 40)"/></svg>
   </div>
 
   <div class="wrap">
@@ -351,11 +363,11 @@ section{position:relative}
   </div></div>
   <div class="wrap about-grid">
     <div class="about-media reveal">
-      <picture>
+      <picture data-depth="0.12">
         <source srcset="assets/about.webp" type="image/webp">
-        <img src="assets/about.jpg" alt="A fluffy, freshly groomed doodle sitting on a lawn under a big oak tree in warm afternoon light." width="1600" height="905" loading="lazy" decoding="async" data-depth="0.12">
+        <img src="assets/about.jpg" alt="A fluffy, freshly groomed doodle sitting on a lawn under a big oak tree in warm afternoon light." width="1600" height="905" loading="lazy" decoding="async">
       </picture>
-      <div class="about-badge"><img src="assets/logo-mark.png" alt="" width="40" height="40">Groomed with care, right at home</div>
+      <div class="about-badge"><img src="assets/logo-mark-160.png" alt="" width="40" height="40">Groomed with care, right at home</div>
     </div>
     <div class="about-copy reveal d1">
       <span class="eyebrow">About Open Oaks</span>
@@ -522,7 +534,7 @@ section{position:relative}
         <span class="eyebrow">Book a visit</span>
         <h2 id="contact-h">Ready for a happier, fluffier pet?</h2>
         <p class="lead" style="color:rgba(255,255,255,.82)">Call or email with your pet's breed, size and what you're after. We'll set up a time and come to you.</p>
-        <img src="assets/logo-900.png" alt="Open Oaks Mobile Pet Grooming logo" width="220" height="160" loading="lazy" decoding="async" style="width:220px;height:auto;margin-top:1.6rem;background:var(--cream);padding:1rem 1.4rem;border-radius:18px">
+        <img src="assets/logo-520.png" alt="Open Oaks Mobile Pet Grooming logo" width="220" height="160" loading="lazy" decoding="async" style="width:220px;height:auto;margin-top:1.6rem;background:var(--cream);padding:1rem 1.4rem;border-radius:18px">
       </div>
       <div class="contact-cards reveal d1">
         <a class="ccard" href="tel:+14193096184">
@@ -562,6 +574,7 @@ section{position:relative}
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduce) document.documentElement.className = 'js';
   var nav = document.getElementById('nav');
   var callbar = document.getElementById('callbar');
   var video = document.getElementById('heroVideo');
@@ -573,19 +586,16 @@ section{position:relative}
     if (reduce) {
       video.removeAttribute('autoplay'); video.pause(); video.style.display = 'none';
     } else {
-      var small = window.innerWidth < 720 || (navigator.connection && /2g/.test(navigator.connection.effectiveType || ''));
-      if (small) {
-        var srcs = video.querySelectorAll('source');
-        srcs.forEach(function(s){ s.src = s.src.replace('hero.webm','hero-720.webm').replace('hero.mp4','hero-720.mp4'); });
-        video.load();
-      }
       video.muted = true; video.defaultMuted = true;
       var tryPlay = function(){ var p = video.play(); if (p && p.catch) p.catch(function(){}); };
       tryPlay();
       video.addEventListener('canplay', tryPlay, {once:true});
       ['touchstart','click','keydown'].forEach(function(ev){ window.addEventListener(ev, tryPlay, {once:true, passive:true}); });
       video.addEventListener('playing', function(){ hero.classList.add('video-on'); });
-      document.addEventListener('visibilitychange', function(){ if (document.hidden) video.pause(); else tryPlay(); });
+      document.addEventListener('visibilitychange', function(){ if (!document.hidden) tryPlay(); });
+      window.addEventListener('pageshow', tryPlay); window.addEventListener('focus', tryPlay);
+      /* Only run the loop while the hero is on screen (checked in the scroll handler below). */
+      window.__heroPlay = tryPlay;
     }
   }
 
@@ -626,11 +636,21 @@ section{position:relative}
       var L = layers[i];
       var r = L.host.getBoundingClientRect();
       if (r.bottom < -vh || r.top > vh * 2) continue;
-      var center = r.top + r.height / 2 - vh / 2;   /* distance of section center from viewport center */
-      var offset = -center * L.depth;
+      var offset;
+      if (L.host === hero) {
+        offset = y * L.depth;                          /* hero layers start at rest and drift down as you scroll */
+      } else {
+        var center = r.top + r.height / 2 - vh / 2;   /* distance of section center from viewport center */
+        offset = -center * L.depth;
+      }
       L.el.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
     }
     onScrollUI();
+    if (video && !reduce) {
+      var hb = hero.getBoundingClientRect().bottom;
+      if (hb < 0 && !video.paused) video.pause();
+      else if (hb >= 0 && video.paused && window.__heroPlay) window.__heroPlay();
+    }
   };
   var onScroll = function(){ if (!ticking) { ticking = true; requestAnimationFrame(render); } };
   setup(); render();
